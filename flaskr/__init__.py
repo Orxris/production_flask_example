@@ -27,6 +27,12 @@ def create_celery_app(app):
 
 
 def create_app(test_config=None):
+    """
+    Create App
+
+    Creates a flask app, and calls the create_celery_app function too.
+    """
+
     app = Flask(__name__, instance_relative_config=True)
 
     app.config.from_mapping(
@@ -45,6 +51,7 @@ def create_app(test_config=None):
 
     app.extensions["celery"] = create_celery_app(app)
 
+    # This is the celery task itself
     @shared_task(ignore_result=False)
     def add_together(a, b):
         return a + b
