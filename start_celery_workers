@@ -1,0 +1,4 @@
+# To start Celery workers:
+celery --app flaskr worker
+
+# This relies on there being a celery.py file in the project 'root'.

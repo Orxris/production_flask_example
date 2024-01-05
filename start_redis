@@ -1,0 +1,4 @@
+# The path to the redis executable will vary depending on how you installed it. Because I
+# installed it properly, this is easy:
+
+redis-server
